@@ -1,0 +1,366 @@
+@import './fonts.css';
+:root {
+    --bg-color-main: #EEE;
+    --bg-color-secondary: #fff;
+    --main: #EF6C00;
+    --secondary: #DB6300;
+    --black: #222;
+    --lighter-gray: #ddd;
+    --light-gray: #f5f5f5;
+    --gray: #DDDDDD;
+    --medium-gray: #9E9E9E;
+    --dark-gray: #434854;
+    --darker-gray: #262A34;
+    --white: #fff;
+    --success: #32BF00; 
+    --fail: #CC3300;
+}
+/* CSS RESET */
+* {
+    padding:0;
+    margin:0;
+    vertical-align:baseline;
+    list-style:none;
+    border:0
+    }
+/*
+layout 
+*/
+body {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 16px;
+    color: var(--darker-gray);
+    background: linear-gradient(180deg, var(--bg-color-main) 0%, var(--bg-color-secondary) 100%) no-repeat;
+    background-size: cover;
+    min-height: 100vh;
+}
+.container {
+    display: flex;
+    justify-content: center;
+    flex-flow: wrap;
+    flex-direction: column;
+    text-align: center;
+    margin: 0 auto;
+    padding: 1.9375rem 0;
+}
+.container > .container-header {
+    flex: 1 1 100%;
+    font-size: 1.5rem;
+    color: var(--main);
+    padding: 1.9375rem 3.625rem;
+}
+.section-numbers {
+    text-align: center;
+    padding: 121px 0px 141px 0px;
+}
+.message.hint {
+    height: 35px;
+}
+.message.hint > p {
+    color: var(--main);
+    font-weight: 700;
+    line-height: 20px;
+    letter-spacing: -1px;
+}
+.message.hint.succes > p {
+    color: var(--success);
+}
+.message.hint.fail > p {
+    color: var(--fail);
+    text-transform: uppercase;
+}
+.section-numbers-footer {
+    padding-top: 1.75rem;
+    padding-bottom: 1.75rem;
+}
+.app-footer {
+    position: fixed;
+    display: block;
+    justify-content: center;
+    top: auto;
+    bottom: 0;
+    width: 100vw;
+    padding: 31px 5px;
+}
+.app-footer > .form-group {
+    display: flex;
+    flex: 1 1 auto;
+    justify-content: center;
+    align-content: center;
+}
+/*
+Number
+*/
+.number {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-around;
+    width: 183px;
+    margin: 0 auto;
+}
+.number > div[class^="digit"] {
+    display: none;
+    flex: 0 0 33%;
+    min-height: 100px;
+    margin: 0px 4.25px;
+    padding: 0;
+    position: relative;
+}
+.number > div[class^="digit"].show {
+    display: block;
+}
+.number > div[class^="digit"] > div {
+    display: block;
+    position: absolute;
+    border-color: var(--lighter-gray);
+    padding: 15px;
+    border-color: transparent;
+    border-style: solid;
+    border-width: 10px;
+    border-radius: 5px;
+}
+.number > div[class^="digit"] > div:nth-child(1) {
+    border-top-color: var(--lighter-gray);
+}
+.number > div[class^="digit"] > div:nth-child(2) {
+    border-left-color: var(--lighter-gray);
+    border-left-width: 8px;
+    left: -1px;
+}
+.number > div[class^="digit"] > div:nth-child(3) {
+    border-right-color: var(--lighter-gray);
+    border-right-width: 8px;
+    left: 3px;
+}
+.number > div[class^="digit"] > div:nth-child(5) {
+    border-top-color: transparent;
+    border-right-color: var(--lighter-gray);
+    border-left-color: transparent;
+    border-bottom-color: transparent;
+    top: 48%;
+    left: 2%;
+}
+.number > div[class^="digit"] > div:nth-child(6) {
+    border-top-color: transparent;
+    border-right-color: transparent;
+    border-left-color: transparent;
+    border-bottom-color: var(--lighter-gray);
+    top: 50%;
+}
+.number > div[class^="digit"] > div:nth-child(7) {
+    border-top-color: transparent;
+    border-right-color: transparent;
+    border-left-color: var(--lighter-gray);
+    border-bottom-color: transparent;
+    top: 48%;
+    left: 0%;
+}
+.number > div[class^="digit"] > span.separator {
+    display: block;
+    position: absolute;
+    top: 48%;
+    left: 42%;
+    height: 1px;
+    width: 35%;
+    border-width: 5px;
+    border-style: inset;
+    border-color: transparent;
+    margin: 0 auto;
+    text-align: center;
+    background: var(--lighter-gray);
+    transform: translate(-50%, -50%);
+}
+.number > div[class^="digit"] > span.separator::before {
+    display: block;
+    position: absolute;
+    top: -5px;
+    left: -16px;
+    margin-right: 5px;
+    content: '';
+    height: 1px;
+    width: 1px;
+    border-color: transparent;
+    border-width: 5px;
+    border-style: solid;
+    border-right-color: var(--lighter-gray);
+}
+.number > div[class^="digit"] > span.separator::after {
+    display: block;
+    position: absolute;
+    top: -5px;
+    right: -16px;
+    margin-left: 5px;
+    content: '';
+    height: 1px;
+    width: 1px;
+    border-color: transparent;
+    border-width: 5px;
+    border-style: solid;
+    border-left-color: var(--lighter-gray);
+}
+.number > div[class^="digit"] > div:nth-child(2).on,
+.number > div[class^="digit"] > div:nth-child(7).on {
+    border-left-color: var(--darker-gray);
+}
+.number > div[class^="digit"] > div:nth-child(3).on,
+.number > div[class^="digit"] > div:nth-child(5).on {
+    border-right-color: var(--darker-gray);
+}
+.number > div[class^="digit"] > div:nth-child(1).on {
+    border-top-color: var(--darker-gray);
+}
+.number > div[class^="digit"] > div:nth-child(6).on {
+    border-bottom-color: var(--darker-gray);
+}
+.number > div[class^="digit"] > span.separator.on {
+    background: var(--darker-gray);
+}
+.number > div[class^="digit"] > span.separator.on::before {
+    border-right-color: var(--darker-gray);
+}
+.number > div[class^="digit"] > span.separator.on::after {
+    border-left-color: var(--darker-gray);
+}
+.number > div[class^="digit"] > div:nth-child(2).on.success,
+.number > div[class^="digit"] > div:nth-child(7).on.success {
+    border-left-color: var(--success);
+}
+.number > div[class^="digit"] > div:nth-child(3).on.success,
+.number > div[class^="digit"] > div:nth-child(5).on.success {
+    border-right-color: var(--success);
+}
+.number > div[class^="digit"] > div:nth-child(1).on.success {
+    border-top-color: var(--success);
+}
+.number > div[class^="digit"] > div:nth-child(6).on.success {
+    border-bottom-color: var(--success);
+}
+.number > div[class^="digit"] > span.separator.on.success {
+    background: var(--success);
+}
+.number > div[class^="digit"] > span.separator.on.success::before {
+    border-right-color: var(--success);
+}
+.number > div[class^="digit"] > span.separator.on.success::after {
+    border-left-color: var(--success);
+}
+.number > div[class^="digit"] > div:nth-child(2).on.fail,
+.number > div[class^="digit"] > div:nth-child(7).on.fail {
+    border-left-color: var(--fail);
+}
+.number > div[class^="digit"] > div:nth-child(3).on.fail,
+.number > div[class^="digit"] > div:nth-child(5).on.fail {
+    border-right-color: var(--fail);
+}
+.number > div[class^="digit"] > div:nth-child(1).on.fail {
+    border-top-color: var(--fail);
+}
+.number > div[class^="digit"] > div:nth-child(6).on.fail {
+    border-bottom-color: var(--fail);
+}
+.number > div[class^="digit"] > span.separator.on.fail {
+    background: var(--fail);
+}
+.number > div[class^="digit"] > span.separator.on.fail::before {
+    border-right-color: var(--fail);
+}
+.number > div[class^="digit"] > span.separator.on.fail::after {
+    border-left-color: var(--fail);
+}
+/*
+Typography
+*/
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: 'Montserrat', sans-serif;
+    transition: all ease 0.3s;
+}
+h1 {
+    font-size: 1rem;
+    line-height: 1.8125rem;
+    text-transform: uppercase;
+}
+h1.main-title {
+    color: inherit;
+}
+h1.main-title::after {
+    display: block;
+    width: 75%;
+    content: '';
+    height: 1px;
+    margin: 0.125rem auto;
+    background: var(--lighter-gray);
+}
+/*
+Ícones
+*/
+.icon {
+    display: inline-block;
+    width: 24px;
+    height: 24px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center center;
+    vertical-align: middle;
+}
+.icon.icon-refresh {
+    background-image: url('../img/refresh_24px_outlined.svg');
+}
+/*
+Form elements
+*/
+input {
+    padding: 14px 8px;
+    color: var(--black);
+    border-radius: 4px;
+    margin-right: 11px;
+    border: 1px solid var(--main);
+}
+input:disabled {
+    color: var(--dark-gray);
+    background: var(--light-gray);
+    border-color: var(--lighter-gray);
+}
+/*
+Components
+*/
+.btn {
+    padding: 14px 10px;
+    color: var(--white);
+    background: var(--medium-gray);
+    border-radius: 4px;
+}
+.btn.new {
+    background: linear-gradient(180deg, var(--dark-gray) 0%, var(--medium-gray) 100%);
+}
+.btn.send {
+    background: linear-gradient(180deg, var(--main) 0%, var(--secondary) 100%);
+}
+.btn.new:disabled,
+.btn.send:disabled {
+    background: var(--gray);
+}
+.hide {
+    display: none;
+}
+/*
+Regras responsividade
+*/
+
+@media (min-width: 432px) {
+    h1 {
+        font-size: 1.25rem;
+        line-height: 3.625rem;
+    }
+}
+@media (min-width: 768px) {
+    h1 {
+        font-size: 2.25rem;
+        line-height: 3.625rem;
+    }
+}

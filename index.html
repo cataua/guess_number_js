@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="pt-bt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Qual é o seu número?</title>
+    <link href="assets/css/style.css" rel="stylesheet" medial="all" />
+</head>
+<body>
+    <main class="container">
+        <header class="container-header">
+            <h1 class="main-title">Qual é o seu número?</h1>
+        </header>
+        <section class="section-numbers">
+            <div class="message hint" id="retornoNumero">
+                <p></p>
+            </div>
+            <div class="number" id="number">
+                <div class="digit show">
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <span class="separator"></span>
+                    <!-- <div></div>
+                    <div></div> -->
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                </div>
+                <div class="digit">
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <span class="separator"></span>
+                    <!-- <div></div>
+                    <div></div> -->
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                </div>
+                <div class="digit">
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <span class="separator"></span>
+                    <!-- <div></div>
+                    <div></div> -->
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                </div>
+            </div>
+            <footer class="section-numbers-footer">
+                <button type="submit" class="btn new hide" id="new-game">
+                    <i class="icon icon-refresh"></i>
+                    Nova Partida
+                </button>
+            </footer>
+        </section>
+    </main>
+    <footer class="app-footer section-submition">
+        <div class="form-group">
+            <input type="text" disabled="disabled" class="input-text-guess" value="" name="hunch" placeholder="Digite o palpite">
+            <button type="submit" disabled="disabled" class="btn send" id="send">Enviar</button>
+        </div>
+    </footer>
+    <script type="text/javascript" src="assets/js/scripts.js" ></script>
+    <script>
+        (function () {
+            loadNumber();
+        })();
+    </script>
+</body>
+</html>
