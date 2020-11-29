@@ -62,7 +62,7 @@ body {
     line-height: 20px;
     letter-spacing: -1px;
 }
-.message.hint.succes > p {
+.message.hint.success > p {
     color: var(--success);
 }
 .message.hint.fail > p {
